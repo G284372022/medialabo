@@ -1,0 +1,9 @@
+* {
+    background-color: bisque;
+}
+
+h1{
+    border: 4mm ridge rgba(211, 220, 50, .6);
+    background-color: #dfdfdf;
+        text-align: center;
+}
