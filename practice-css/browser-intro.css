@@ -4,24 +4,37 @@ p {
 
 p.info {
 	font-size: small;
-}
-
-h1 {
 	background-color: #dfdfdf;
 }
 
+h1 {
+	color: white;
+	text-shadow: navy 1px 0 10px
+}
+
 h2 {
-	border: solid 1px black;
-	margin: 5px;
+	font-family: cursive;
+	color: #3f3faf;
+	background:linear-gradient(to right, white,#ffefaf);
+	padding: 5px;
+}
+
+img {
+    float: right;   /* 画像を右に浮かせる */
 }
 
 div#zentai {
-	display: flex;
-	flex-direction: row;
-	width: 1024px;
+	font-family: sans-serif;
+	color: #3f3faf;
+	display: grid;                      /* グリッドレイアウトにする*/
+    grid-template-columns: 1fr 1fr; /* 3列にする．幅は 1:2:2 の比率*/
+    grid-auto-rows: 200px 200px;        /* 高さは 100px */
+    grid-gap: 10px;
+	padding:5px;                     /* 隣り合う行（列）の間隔を 10px に*/
 }
 
 div#zentai > div {
 	margin-left: 5px;
 	background-color: #ffefaf;
 }
+
