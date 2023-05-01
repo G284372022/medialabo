@@ -1,0 +1,75 @@
+* {
+    background-color: bisque;
+}
+
+h1{
+    border: 4mm ridge rgba(211, 220, 50, .6);
+    background-color: #dfdfdf;
+}
+h2.main {
+    border: solid blueviolet;
+    background-color: ghostwhites;
+}
+h2.report{
+    border: thick double #32a1ce;
+    background-color: white;
+}
+h2{
+    border: 1rem solid yellowgreen;
+    background-color: white;
+}
+h3 {
+    background-color: #ffefaf;
+    border: solid black;
+    background-color: grey;
+    color: aqua;
+}
+div#upper {
+	font-family: sans-serif;
+	color: #3f3faf;
+	display: grid;                      /* グリッドレイアウトにする*/
+    grid-template-columns: 1fr 1fr; /* 3列にする．幅は 1:2:2 の比率*/
+    grid-auto-rows: 300px 300px;        /* 高さは 100px */
+    grid-gap: 10px;
+	padding:5px;                     /* 隣り合う行（列）の間隔を 10px に*/
+}
+div#upper > div{
+	background-color: #ffefaf;
+}
+div#under {
+	font-family: sans-serif;
+	color: #3f3faf;
+	display: grid;                      /* グリッドレイアウトにする*/
+    grid-template-columns: 1fr 1fr 1fr; /* 3列にする．幅は 1:2:2 の比率*/
+    grid-auto-rows: 400px 400px 400px;        /* 高さは 100px */
+    grid-gap: 10px;
+	padding:5px;                     /* 隣り合う行（列）の間隔を 10px に*/
+}
+div#under > div{
+    margin-left: 5px;
+	background-color: #ffefaf;
+}
+p.summary {
+    background-color: #ffefaf;
+}
+p.test {
+    color: black;
+    background-color: #ffefaf;
+    text-decoration: underline wavy red;
+}
+a {
+    background:white;
+}
+li {
+    background:linear-gradient(to right, white,#ffefaf);
+}
+
+ul {
+    background:white;
+}
+a:link {
+
+}
+a:visited {
+
+}
