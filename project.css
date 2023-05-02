@@ -7,3 +7,17 @@ h1{
     background-color: #dfdfdf;
         text-align: center;
 }
+
+table {
+    background-color: black; 
+    border-collapse:  collapse;
+}
+ 
+th {
+    background-color: black;
+}
+
+th,td {
+    border: solid 1px;
+    padding: 10px;
+}
