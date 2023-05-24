@@ -200,13 +200,31 @@ let data = {
 };
 
 /////////// 課題3-2 ここからプログラムを書こう
+let dp = document.querySelector('div#gurume')
+let a = document.createElement('p');
+let b = document.createElement('p');
+let c = document.createElement('p');
+let f = document.createElement('p');
+let e = document.createElement('p');
+let g = document.createElement('p');
+  let d = document.createElement('div');
+  d.insertAdjacentElement('beforeend', a);
+  dp.insertAdjacentElement('beforeend', a)  
+  d.insertAdjacentElement('beforeend', b);
+  dp.insertAdjacentElement('beforeend', b)  
+  d.insertAdjacentElement('beforeend', c);
+  dp.insertAdjacentElement('beforeend', c)  
+  d.insertAdjacentElement('beforeend', f);
+  dp.insertAdjacentElement('beforeend', f)  
+  d.insertAdjacentElement('beforeend', e);
+  dp.insertAdjacentElement('beforeend', e)  
+  d.insertAdjacentElement('beforeend', g);
+  dp.insertAdjacentElement('beforeend', g)  
 for (let n of data.results.shop){
-  console.log(n.access);
-  console.log(n.address);
-  console.log(n.budget.average);
-  console.log(n.catch);
-  console.log(n.genre.name);
-  console.log(n.open);
-  console.log(n.mobile_access);
-  console.log(n.genre.catch);
+  a.textContent = n.address;
+  b.textContent = n.access;
+  c.textContent = n.budget.average;
+  f.textContent = n.genre.name;
+  e.textContent = n.name;
+  g.textContent = n.open;
 }
