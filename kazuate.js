@@ -25,7 +25,7 @@ function hantei() {
    // 課題3-1: 正解判定する
   // kotae と kazu が一致するかどうか調べて結果を出力
   // 課題3-1における出力先はコンソール
-    console.log(kaisu + '回目の予想: ');
+    console.log(kaisu + '回目の予想: ' + kazu);
     if(kaisu<3) {
         if(kazu>kotae) {
             z.textContent = 'まちがい. 答えはもっと小さいですよ';
