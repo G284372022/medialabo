@@ -258,7 +258,7 @@ function showResult(resp) {
     inf_div.insertAdjacentElement('beforeend', h3);
 
     let cre_p = document.createElement('p');
-   cre_p.textContent = ('キャッチコピー:' + x1.address);
+   cre_p.textContent = ('キャッチコピー:' + x1.catch);
     inf_div.insertAdjacentElement('beforeend', cre_p);
    cre_p = document.createElement('p');
 
