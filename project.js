@@ -200,46 +200,108 @@ let data = {
 };
 
 /////////// 課題3-2 ここからプログラムを書こう
-let h = document.querySelector('button#btn');
-h.addEventListener('click', showSelectResult);
+let link = document.querySelector('#sendRequest');
+link.addEventListener('click', sendRequest);
+let number = 0; //回数を数えるための変数
+let x1;
+// 通信を開始する処理
+function sendRequest() {
+  let gurumes = document.querySelector('select#gurumes');
+  let index = gurumes.selectedIndex;
+  x1 = index
+  let num_opt = gurumes.querySelectorAll('option');
+  let item_idx = num_opt.item(index);
+  console.log('選択された ' + index + ' 番目の option の情報:');
+    console.log('  value=' + item_idx.getAttribute('value'));  // id 属性を表示
+    console.log('  textContent='+item_idx.textContent);
 
-function showSelectResult() {
-    let s = document.querySelector('select#santaro');
-    let idx = s.selectedIndex;  // idx 番目の option が選択された
+    // URL を設定
+    let url;
+      let str = 'G0';
+      if (x1<10) {
+        url = 'https://www.nishita-lab.org/web-contents/jsons/hotpepper/' + str + '0' + x1 + '.json';
+      }else {
+        url = 'https://www.nishita-lab.org/web-contents/jsons/hotpepper/' + str + x1 + '.json';
+      }
+    // 通信開始
+    axios.get(url)
+        .then(showResult)   // 通信成功
+        .catch(showError)   // 通信失敗
+        .then(finish);      // 通信の最後の処理
+}
+// 通信が成功した時の処理
+function showResult(resp) {
 
-    let os = s.querySelectorAll('option');  // s の子要素 option をすべて検索
-    let o = os.item(idx);       // os の idx 番目の要素
+  // サーバから送られてきたデータを出力
+  let data = resp.data;
+  let data2 = data.results;
+  let data3 = data2.shop;
+  // data が文字列型なら，オブジェクトに変換する
+  if (typeof data === 'string') {
+      data = JSON.parse(data);
+  }
+  //出力する
+  if(number !== 0){
+  let Power_p = document.querySelectorAll('p');
+  let h3 = document.querySelectorAll('h3');
+  for(let dele_h3 of h3){
+    dele_h3.remove();
+  }
+  for (let dele_p of Power_p){
+    dele_p.remove();
+  }
+}
+  for(let x1 of data3){
+    let inf_div = document.querySelector('div#information');  
+    let h3 = document.createElement('h3')
+    h3.textContent = ('店舗名:' + x1.name);
+    inf_div.insertAdjacentElement('beforeend', h3);
 
-    console.log('選択された ' + idx + ' 番目の option の情報:');
-    console.log('  value=' + o.getAttribute('value'));  // id 属性を表示
-    console.log('  textContent='+o.textContent);
+    let cre_p = document.createElement('p');
+   cre_p.textContent = ('キャッチコピー:' + x1.address);
+    inf_div.insertAdjacentElement('beforeend', cre_p);
+   cre_p = document.createElement('p');
+
+   cre_p.textContent = ('アクセス情報:' + x1.access);
+    inf_div.insertAdjacentElement('beforeend', cre_p);
+   cre_p = document.createElement('p');
+    
+   cre_p.textContent = ('最寄駅:' + x1.station_name);
+    inf_div.insertAdjacentElement('beforeend', cre_p);
+   cre_p = document.createElement('p');
+
+   cre_p.textContent = ('住所:' +x1.address);
+    inf_div.insertAdjacentElement('beforeend', cre_p);
+   cre_p = document.createElement('p');
+
+   cre_p.textContent = ('予算:' +x1.budget.name);
+    inf_div.insertAdjacentElement('beforeend', cre_p);
+   cre_p = document.createElement('p');
+
+   cre_p.textContent = ('営業日時:' + x1.open);
+    inf_div.insertAdjacentElement('beforeend', cre_p);
+  cre_p = document.createElement('p');
+
+  cre_p.textContent = ('特徴:' + x1.charter);
+    inf_div.insertAdjacentElement('beforeend', cre_p);
+   cre_p = document.createElement('p');
+  }
+
+  let inf_div = document.querySelector('div#one_more');  
+ cre_p = document.createElement('p');
+   cre_p.textContent = ('検索結果は以上です。');
+    inf_div.insertAdjacentElement('beforeend', cre_p);
+  number = number+1; 
+  // コンソールに回数出力
+  console.log(number);
 }
 
-let dp = document.querySelector('div#gurume')
-let a = document.createElement('p');
-let b = document.createElement('p');
-let c = document.createElement('p');
-let f = document.createElement('p');
-let e = document.createElement('p');
-let g = document.createElement('p');
-  let d = document.createElement('div');
-  d.insertAdjacentElement('beforeend', a);
-  dp.insertAdjacentElement('beforeend', a)  
-  d.insertAdjacentElement('beforeend', b);
-  dp.insertAdjacentElement('beforeend', b)  
-  d.insertAdjacentElement('beforeend', c);
-  dp.insertAdjacentElement('beforeend', c)  
-  d.insertAdjacentElement('beforeend', f);
-  dp.insertAdjacentElement('beforeend', f)  
-  d.insertAdjacentElement('beforeend', e);
-  dp.insertAdjacentElement('beforeend', e)  
-  d.insertAdjacentElement('beforeend', g);
-  dp.insertAdjacentElement('beforeend', g)  
-for (let n of data.results.shop){
-  a.textContent = n.address;
-  b.textContent = n.access;
-  c.textContent = n.budget.average;
-  f.textContent = n.genre.name;
-  e.textContent = n.name;
-  g.textContent = n.open;
+// 通信エラーが発生した時の処理
+function showError(err) {
+  console.log(err);
+}
+
+// 通信の最後にいつも実行する処理
+function finish() {
+  console.log('Ajax 通信が終わりました');
 }

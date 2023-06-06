@@ -1,39 +1,48 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="utf-8">
-        <title>グルメ情報</title>
-        <link rel="stylesheet" href="project.css">
-        <script src="project.js" defer></script>
+        <head>
+            <meta charset="utf-8">
+            <title>グルメ情報</title> 
+            <link rel="stylesheet" href="project.css"> <script src="project.js" defer=""></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"></script>
+        </head>
     </head>
-    <h1>
-        グルメ情報
-    </h1>
-    <label for="santaro">ジャンル</label>
-    <select name="santaro" id="santaro">
-        <option value="">検索したいジャンルを1つ選んでください</option>
-        <option value="G001">居酒屋</option>
-        <option value="G002">ダイニングバー・バル</option>
-        <option value="G003">創作料理</option>
-        <option value="G004">和食</option>
-        <option value="G005">洋食</option>
-        <option value="G006">イタリアン・フレンチ</option>
-        <option value="G007">中華</option>
-        <option value="G008">焼肉・ホルモン</option>
-        <option value="G009">アジア・エスニック料理</option>
-        <option value="G010">各国料理</option>
-        <option value="G011">カラオケ・パーティ</option>
-        <option value="G012">バー・カクテル</option>
-        <option value="G013">ラーメン</option>
-        <option value="G014">カフェ・スイーツ</option>
-        <option value="G015">その他グルメ</option>
-        <option value="G016">お好み焼き・もんじゃ</option>
-        <option value="G017">韓国料理</option>
-    </select>
-    <button id="btn">検索</button>
-    <div id="gurume"></div>
-    <div id="gurume2"></div>
-    <div id="gurume3"></div>
-    <div id="gurume4"></div>
-    <div id="gurume5"></div>
+    <body>
+        <body>
+            <h1>グルメ情報</h1>
+
+      <label for="index">食べたいものを選んでください</label>
+
+        <select name="gurumes" id="gurumes">
+            <option >食べたいジャンルを選択してください。</option>
+            <option>居酒屋</option>
+            <option >ダイニングバー・バル</option>
+            <option >創作料理</option>
+            <option >和食</option>
+            <option >洋食</option>
+            <option >イタリアン・フレンチ</option>
+            <option >中華</option>
+            <option >焼肉・ホルモン</option>
+            <option >アジア・エスニック料理</option>
+            <option >各国料理</option>
+            <option >カラオケ・パーティ</option>
+            <option >バー・カクテル</option>
+            <option >ラーメン</option>
+            <option >カフェ・スイーツ</option>
+            <option >その他グルメ</option>
+            <option >お好み焼き・もんじゃ</option>
+            <option >韓国料理</option>
+        </select>
+        <button id="sendRequest">検索</button>
+        
+            <div id="information">
+                <p id="name"></p>
+            </div>
+            <div id="one_more">
+    
+            </div>
+        
+    </body>
+</body>
 </html>
